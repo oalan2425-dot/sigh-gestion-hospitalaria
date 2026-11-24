@@ -1,0 +1,2 @@
+@extends('sigh2.layout')
+@section('body')<h1>Panel de gestión</h1><p>Módulos disponibles según los roles asignados.</p>@if(in_array('admin',$roles))<a class="button" href="{{ route('sigh2.audit') }}">Auditoría</a>@endif<div class="cards">@forelse($modules as $key=>$m)<a class="card" href="{{ route('sigh2.index',$key) }}"><small>{{ $m['role'] }}</small><h2>{{ $m['title'] }}</h2><b>{{ $counts[$key] }}</b><p>Registros →</p></a>@empty<p>Solicite al administrador la asignación de un rol.</p>@endforelse</div>@endsection

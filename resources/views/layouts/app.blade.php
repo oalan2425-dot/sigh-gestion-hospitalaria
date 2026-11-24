@@ -16,6 +16,7 @@
         <a href="{{ route('especialidades.index') }}" class="{{ request()->routeIs('especialidades.*') ? 'activo' : '' }}">Especialidades</a>
         <a href="{{ route('citas.index') }}" class="{{ request()->routeIs('citas.*') ? 'activo' : '' }}">Citas</a>
         <a href="{{ route('consultas.index') }}" class="{{ request()->routeIs('consultas.*') ? 'activo' : '' }}">Consultas</a>
+        <a href="{{ route('sigh2.home') }}">SIGH 2.0</a>
         <div class="usuario">
             <span>{{ auth()->user()->name }}</span>
             <form method="POST" action="{{ route('logout') }}" class="inline">

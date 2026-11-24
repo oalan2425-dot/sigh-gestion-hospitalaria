@@ -36,3 +36,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('citas', CitaController::class)->except('show');
     Route::resource('consultas', ConsultaController::class)->except('show');
 });
+
+require __DIR__.'/sigh2.php';

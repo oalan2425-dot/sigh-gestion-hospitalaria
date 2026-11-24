@@ -1,0 +1,2 @@
+@extends('sigh2.layout')
+@section('body')<h1>Auditoría de operaciones</h1><div class="table"><table><tr><th>Usuario</th><th>Módulo</th><th>Acción</th><th>Registro</th><th>Fecha</th></tr>@foreach($rows as $r)<tr><td>{{ $r->user_id }}</td><td>{{ $r->module }}</td><td>{{ $r->action }}</td><td>{{ $r->record_id }}</td><td>{{ $r->created_at }}</td></tr>@endforeach</table></div><p>@if($rows->previousPageUrl())<a href="{{ $rows->previousPageUrl() }}">Anterior</a>@endif @if($rows->nextPageUrl())<a href="{{ $rows->nextPageUrl() }}">Siguiente</a>@endif</p>@endsection
