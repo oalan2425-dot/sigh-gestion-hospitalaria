@@ -1,0 +1,4 @@
+# SIGH 2.0 · Interfaz oscura
+Extraer en la raíz del proyecto que ya tiene SIGH 2.0 instalado. Reemplaza layouts/app.blade.php, sigh2/layout.blade.php, sigh2/home.blade.php y routes/web.php; añade navegación, CSS y JS. Revisar cambios locales antes de sobrescribir. No incluye migraciones, credenciales ni dependencias nuevas. /panel redirige a /sigh2. Los módulos originales conservan sus rutas y permisos existentes (solo autenticación); los nuevos conservan sus controles por rol. No es una mejora de seguridad ni de lógica clínica. Los indicadores se calculan con datos existentes, sin datos ficticios. El resumen de módulos cuenta registros acumulados.
+
+PowerShell: php artisan optimize:clear; php artisan view:cache; php artisan route:list --path=sigh2; php artisan test; php artisan serve. Abrir /sigh2 y Ctrl+F5. Probar login, menú, formularios, listados y permisos. No ejecutar migrate:fresh. No se ha probado contra la instalación local del usuario.

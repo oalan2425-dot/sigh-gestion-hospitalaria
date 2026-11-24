@@ -26,7 +26,7 @@ Route::middleware('guest')->group(function () {
 // Rutas protegidas: requieren iniciar sesión
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-    Route::get('/panel', DashboardController::class)->name('dashboard');
+    Route::get('/panel', fn () => redirect()->route('sigh2.home'))->name('dashboard');
 
     Route::resource('pacientes', PacienteController::class);
     Route::resource('medicos', MedicoController::class)->except('show');

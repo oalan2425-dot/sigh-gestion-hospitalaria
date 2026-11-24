@@ -41,11 +41,15 @@ class AutenticacionTest extends TestCase
         $this->assertGuest();
     }
 
-    public function test_el_panel_carga_para_un_usuario_autenticado(): void
-    {
-        $this->actingAs(User::factory()->create())
-            ->get('/panel')
-            ->assertOk()
-            ->assertSee('Panel principal');
-    }
+   public function test_el_panel_carga_para_un_usuario_autenticado(): void
+{
+    $this->actingAs(User::factory()->create());
+
+    $this->get('/panel')
+        ->assertRedirect('/sigh2');
+
+    $this->get('/sigh2')
+        ->assertOk()
+        ->assertSee('Panel principal');
+}
 }

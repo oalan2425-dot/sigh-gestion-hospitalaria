@@ -1,1 +1,5 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SIGH 2.0</title><link rel="stylesheet" href="{{ asset('css/sigh2.css') }}"></head><body><aside><strong>SIGH <small>2.0</small></strong><p>Gestión hospitalaria</p><a href="{{ route('sigh2.home') }}">Panel de módulos</a><a href="{{ route('dashboard') }}">Sistema anterior</a><form method="POST" action="{{ route('logout') }}">@csrf<button>Cerrar sesión</button></form></aside><main><header>IPS · Entorno académico <span>{{ auth()->user()->name }}</span></header>@if(session('exito'))<p class="notice">{{ session('exito') }}</p>@endif @if($errors->any())<div class="error">@foreach($errors->all() as $error)<p>{{ $error }}</p>@endforeach</div>@endif @yield('body')</main></body></html>
+@extends('layouts.app')
+@section('contenido')
+@if($errors->any())<div class="alerta error-global" role="alert"><strong>Revisa los datos ingresados.</strong><ul>@foreach($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul></div>@endif
+@yield('body')
+@endsection
